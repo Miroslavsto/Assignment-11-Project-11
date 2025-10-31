@@ -1,0 +1,10 @@
+- Why do you need to establish an IP Layer as a variable in the Scapy packet?
+I set up the IP layer to tell the packet where it’s going and where it’s coming from. Making it a variable helps me reuse it or change it easily when testing different packets. It’s important because it makes sure the packet reaches the right destination and lets me try different ways to get past the firewall.
+- What are the components of the tcp_layer variable and why are they important for routing our malicious packet?
+The tcp_layer has a few key parts:
+- dport is the destination port, like port 80 for websites. It tells the firewall what service I’m trying to reach.
+- sport is the source port, which I can change to make the packet look like normal traffic.
+- flags are used to control how the packet behaves. For example, "S" means it’s trying to start a connection.
+These parts help shape how the firewall sees the packet and whether it blocks or lets it through.
+- What layer of the TCP/IP model is the payload targeted for? What about the OSI model?
+The payload is meant for the Application Layer in both models. That’s the top layer where programs like web browsers and servers communicate. Since I’m sending an HTTP request, it goes to that layer.
